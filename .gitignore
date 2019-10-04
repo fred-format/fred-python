@@ -1,0 +1,9 @@
+__pycache__/
+stubs/
+.hypothesis/
+.idea/
+.vscode/
+.pytest_cache/
+.cache/
+.coverage
+local/

@@ -1,0 +1,17 @@
+;; This file contains a list of valid FRED string representations
+;; It is not part of a test suite, but any valid FRED parser should tackle this
+;; file without a problem.
+Strings {
+    ;; Simple
+    simple: [
+        "abc"
+        "abc def"
+    ]
+
+    ;; Escape sequences
+    escaped: [
+        "abc\ndef"
+        "abc\tdef"
+        "abc\"def"
+    ]
+}

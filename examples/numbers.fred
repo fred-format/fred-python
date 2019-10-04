@@ -1,0 +1,21 @@
+;; This file contains a list of valid FRED numeric representations
+;; It is not part of a test suite, but any valid FRED parser should tackle this
+;; file without a problem.
+Numbers {
+    ;; Integers
+    int: [-5 -4 -3 -2 -1 0 1 2 3 4 5 6 7 8 9 10 11]; ...
+
+    ;; Floats
+    float: [-1.0 0.0 1.0 2.0 3.1415 42.0]; ...
+
+    ;; Scientific notation
+    sci: []; ...
+
+    ;; Different bases
+    bin: [-0b10 -0b1 0b0 0b1 0b10 0b101]; ...
+    octal: [-0o2 -0o1 0o0 0o1 0o2 0o3 0o4 0o5 0o6 0o7 0o10]; ...
+    hex: [-0x2 -0x1 0x0 0x1 0x2 0x3 0x4 0x5 0x6 0x7 0x8 0x9 0xa 0xB 0xc 0xD 0xf 0x10]; ...
+
+    ;; Literal constants
+    literal: [nan -inf inf]
+}

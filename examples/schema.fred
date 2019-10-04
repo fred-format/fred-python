@@ -1,0 +1,51 @@
+;; FRED's builtin "Static" schema
+Schema/Static (id="fred/static") {
+
+}
+
+
+;; Person Schema
+Schema/Person (id="my-org/Person") [
+    Person (id=(Id)) {
+        name: (String)
+        spouse: (Ref/Person)
+        birthday: (Date)
+        children: [(Ref/Person)]
+        pos-int: (Int range=(>= 0))
+        address: (Address)
+        country: (Country?)
+    }
+
+    [* [1 2], + [1 2]]
+    [(+) 1 2]
+
+#. Info {msg: "Hello world", href: "/foo/bar/index.php"}
+#. Warning {msg: "Bad access", href: "/foo/bar/index.php"}
+#. Error {msg: "Bad access", href: "/foo/bar/index.php"}
+
+
+SteamDict
+    #. Bar: 42
+    #. Baz: 42
+    #. FooBar: 42
+
+    # "Foo"
+    # "Bar"
+
+    Foo@Bar
+    @Foo   
+    #Bar   
+
+    @. "Foo bar"
+    @. "Foo"
+    @. "Bar"
+
+    Cons [1 Cons [Cons [2 Cons [3 null]]]]
+    List [1 2 3 4]
+    Set [1 2 3]
+    Weekday [1 2 3 4 5 6 7]
+    Pt Tuple [(Int) (Int)]
+    Hex (Bytes match=$( /[0-9a-fA-F]+/ ))
+    (String match="\\\\\\n\\d+")
+    {name: "Foo!", callback: $(x => (y + 2) * x)}
+]

@@ -1,0 +1,31 @@
+;; Document exercises all rules of FRED grammar. It doesn't go to the darker
+;; corners of the grammar, but it serves as a minimum test for a comprehensive
+;; parser implementation
+FRED/Full {
+    keywords: [true false null nan inf -inf]
+    numbers: [0 -1 2.0 -3.0 4e+0 -5.0 0b110 -0b111 0o10 -0o11 0xa -0xb]
+    strings: [
+        "some string"
+        "with\"escape\""
+        `some bytes`,
+        `with\`escape\``
+    ]
+    dates: [
+        1970-01-01
+        12:00
+        13:00Z
+        2001-01-01_10:32+03:00
+    ]
+    arrays: [[["nested"]], [[true]]]
+    objects: [{simple: true}, {"quoted": "ok"}]
+    symbols: [$symbol, $"quoted symbol", $dashed-case, $name.space, $main/variant]
+    tags: [
+        tag (attr="value") ["tagged value"]
+        (enclosed-tag attr="value" "tagged value")
+        (void-tag attr1=1 attr2=2)
+        (void-tag)
+        tag (complex-attr=complex? true more...=[1 2 3]) $simple-value
+        nested tag $for-value
+        \"quoted tag" ("quoted attr"="value") {tagged: "value"}
+    ]
+}
